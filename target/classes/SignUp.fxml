@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.SignupController"
+            prefWidth="600" prefHeight="600"
+            style="-fx-background-color: #f9f9f9;">
+
+    <VBox spacing="10" alignment="CENTER"
+          AnchorPane.topAnchor="30" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50">
+
+        <Label text="Créer un compte"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+        <VBox spacing="5" maxWidth="400">
+
+            <TextField fx:id="firstNameField" promptText="Prénom"
+                       style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+            <Label fx:id="firstNameError" textFill="red" />
+
+            <TextField fx:id="lastNameField" promptText="Nom"
+                       style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+            <Label fx:id="lastNameError" textFill="red" />
+
+            <TextField fx:id="emailField" promptText="Email"
+                       style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+            <Label fx:id="emailError" textFill="red" />
+
+            <TextField fx:id="telephoneField" promptText="Téléphone"
+                       style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+            <Label fx:id="telephoneError" textFill="red" />
+
+            <HBox spacing="5">
+                <PasswordField fx:id="passwordField" promptText="Mot de passe"
+                               style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+                <TextField fx:id="passwordVisibleField" promptText="Mot de passe"
+                           style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;"
+                           visible="false" managed="false" />
+                <Button text="👁" onAction="#togglePasswordVisibility"
+                        style="-fx-background-color: transparent;" />
+            </HBox>
+            <Label fx:id="passwordError" textFill="red" />
+
+            <HBox spacing="5">
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirmer le mot de passe"
+                               style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+                <TextField fx:id="confirmPasswordVisibleField" promptText="Confirmer le mot de passe"
+                           style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;"
+                           visible="false" managed="false" />
+                <Button text="👁" onAction="#toggleConfirmPasswordVisibility"
+                        style="-fx-background-color: transparent;" />
+            </HBox>
+            <Label fx:id="confirmPasswordError" textFill="red" />
+
+
+            <TextField fx:id="vehiculeField" promptText="Véhicule"
+                       style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+            <Label fx:id="vehiculeError" textFill="red" />
+        </VBox>
+
+        <Button text="S'inscrire" onAction="#handleSignup"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10 20;" />
+
+        <Hyperlink text="Déjà un compte ? Se connecter" onAction="#switchToSignIn"
+                   style="-fx-text-fill: #3498db; -fx-font-size: 12px;" fx:id="signInBtn"/>
+
+    </VBox>
+</AnchorPane>

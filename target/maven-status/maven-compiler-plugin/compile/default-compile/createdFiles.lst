@@ -1,0 +1,8 @@
+controllers\ListeUtilisateursController$1.class
+controllers\LoginController.class
+controllers\FrontController.class
+controllers\SignupController.class
+controllers\ListeUtilisateursController.class
+controllers\ForgotPasswordController.class
+interfaces\IServiceCrud.class
+controllers\RenitialiserMotDePasseController.class

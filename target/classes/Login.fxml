@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.LoginController"
+            prefWidth="500" prefHeight="450"
+            style="-fx-background-color: #f9f9f9;">
+
+    <VBox alignment="CENTER" spacing="15"
+          AnchorPane.topAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50">
+
+        <Label text="Connexion"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+        <VBox spacing="5" maxWidth="350">
+
+            <TextField fx:id="emailField" promptText="Email"
+                       style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+            <Label fx:id="emailError" textFill="red" />
+
+            <PasswordField fx:id="passwordField" promptText="Mot de passe"
+                           style="-fx-background-radius: 6; -fx-border-color: #ccc; -fx-padding: 8;" />
+            <Label fx:id="passwordError" textFill="red" />
+
+        </VBox>
+        <Hyperlink text="Mot de passe oublié ?"
+           onAction="#handleForgotPassword"
+           style="-fx-text-fill: #3498db; -fx-font-size: 12px;" />
+
+
+        <Button text="Se connecter"
+                onAction="#handleLogin"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10 20;" />
+
+        <Hyperlink text="Créer un compte"
+                   onAction="#switchToSignup"
+                   style="-fx-text-fill: #3498db; -fx-font-size: 12px;" fx:id="signupLink" />
+
+        <Label fx:id="errorLabel" textFill="red" visible="false" />
+
+    </VBox>
+</AnchorPane>
