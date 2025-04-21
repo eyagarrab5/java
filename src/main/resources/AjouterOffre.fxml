@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.effect.DropShadow?>
+<AnchorPane style="-fx-background-color: white;" prefHeight="800" prefWidth="1000" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterOffreController">
+   <stylesheets>
+      <URL value="@/styles/forms2.css" />
+   </stylesheets>
+
+   <children>
+
+      <!-- Navigation en haut -->
+      <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff); -fx-padding: 15; -fx-border-width: 0 0 2 0; -fx-border-color: #b3d1f5; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+         <Label text="🚗 COVOITMOB" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #002244; -fx-font-family: 'Segoe UI', sans-serif;" />
+         <Pane HBox.hgrow="ALWAYS"/>
+         <HBox spacing="20" alignment="CENTER">
+            <MenuButton text="🚙 Offres" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002557; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+               <items>
+                  <MenuItem fx:id="mesOffresItem" text="📄 Mes offres" style="-fx-font-size: 16px; -fx-text-fill: #002244;" onAction="#handleMesOffres"/>
+                  <MenuItem fx:id="autresOffresItem" text="🌐 Les offres des autres" style="-fx-font-size: 16px; -fx-text-fill: #002244;" onAction="#handleAutresOffres"/>
+               </items>
+            </MenuButton>
+
+            <Button fx:id="ajouterButton" text="➕ Ajouter" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleAjouterAction">
+               <effect>
+                  <DropShadow color="#a0c4ff" radius="6"/>
+               </effect>
+            </Button>
+
+            <Button text="📋 Listes" onAction="#handleListeAction" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;">
+               <effect>
+                  <DropShadow color="#d0e5ff" radius="4"/>
+               </effect>
+            </Button>
+         </HBox>
+      </HBox>
+
+      <!-- Contenu principal en deux colonnes -->
+      <HBox alignment="CENTER" prefHeight="556.0" prefWidth="1050.0" spacing="40" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="-100.0" AnchorPane.topAnchor="80">
+
+         <!-- Image à gauche -->
+         <VBox alignment="CENTER">
+            <ImageView fitHeight="400" fitWidth="400" translateY="30.0">
+               <image>
+                  <Image url="@/img/pic7.png" />
+               </image>
+            </ImageView>
+         </VBox>
+
+         <!-- Formulaire à droite -->
+         <VBox fx:id="mainBox" maxWidth="640.0" prefHeight="640.0" prefWidth="640.0" spacing="30"
+               translateY="80.0"
+
+               alignment="CENTER"
+               style="-fx-background-color: linear-gradient(to bottom, #c2e4fb, #eff6ff);
+             -fx-background-radius: 25;
+             -fx-border-radius: 25;
+             -fx-border-color: linear-gradient(to right, #001f4d, #003366);
+             -fx-border-width: 1;
+             -fx-padding: 30;
+             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.3, 0, 5);
+             -fx-font-family: 'Segoe UI', sans-serif;">
+
+            <!-- Title -->
+            <Label alignment="CENTER" text="🚗 Ajouter Offre"
+                   style="-fx-font-size: 32px;
+                  -fx-font-weight: bold;
+                  -fx-text-fill: linear-gradient(to right, #001133, #003366);
+                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0.3, 0, 2);" />
+
+            <!-- Form Grid -->
+            <GridPane hgap="25" vgap="20" alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints percentWidth="50" />
+                  <ColumnConstraints percentWidth="50" />
+               </columnConstraints>
+
+               <!-- Départ -->
+               <VBox spacing="6" GridPane.columnIndex="0">
+                  <Label text="📍 Départ *" style="-fx-font-weight: bold;" />
+                  <TextField fx:id="departField" promptText="Ex: Tunis"
+                             style="-fx-background-radius: 12;
+                              -fx-border-radius: 12;
+                              -fx-border-color: #003366;
+                              -fx-border-width: 1.5;
+                              -fx-padding: 8 12;
+                              -fx-background-color: white;" />
+               </VBox>
+
+               <!-- Destination -->
+               <VBox spacing="6" GridPane.columnIndex="1">
+                  <Label text="📍 Destination *" style="-fx-font-weight: bold;" />
+                  <TextField fx:id="destinationField" promptText="Ex: Sousse"
+                             style="-fx-background-radius: 12;
+                              -fx-border-radius: 12;
+                              -fx-border-color: #003366;
+                              -fx-border-width: 1.5;
+                              -fx-padding: 8 12;
+                              -fx-background-color: white;" />
+               </VBox>
+
+               <!-- Places -->
+               <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <Label text="👥 Places *" style="-fx-font-weight: bold;" />
+                  <TextField fx:id="placesField"
+                             style="-fx-background-radius: 12;
+                              -fx-border-radius: 12;
+                              -fx-border-color: #003366;
+                              -fx-border-width: 1.5;
+                              -fx-padding: 8 12;
+                              -fx-background-color: white;" />
+               </VBox>
+
+               <!-- Matricule -->
+               <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label text="🚘 Matricule *" style="-fx-font-weight: bold;" />
+                  <TextField fx:id="matriculeField"
+                             style="-fx-background-radius: 12;
+                              -fx-border-radius: 12;
+                              -fx-border-color: #003366;
+                              -fx-border-width: 1.5;
+                              -fx-padding: 8 12;
+                              -fx-background-color: white;" />
+               </VBox>
+
+               <!-- Date et heure -->
+               <VBox spacing="6" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                  <Label text="📅 Date et heure *" style="-fx-font-weight: bold;" />
+                  <HBox spacing="12">
+                     <DatePicker fx:id="datePicker"
+                                 style="-fx-background-radius: 12;
+                                   -fx-border-radius: 12;
+                                   -fx-border-color: #003366;
+                                   -fx-border-width: 1.5;
+                                   -fx-padding: 6 12;
+                                   -fx-background-color: white;" />
+                     <TextField fx:id="timeField" promptText="HH:MM"
+                                style="-fx-background-radius: 12;
+                                  -fx-border-radius: 12;
+                                  -fx-border-color: #003366;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 8 12;
+                                  -fx-background-color: white;" />
+                  </HBox>
+               </VBox>
+
+               <!-- Prix -->
+               <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                  <Label text="💰 Prix (DT) *" style="-fx-font-weight: bold;" />
+                  <TextField fx:id="prixField"
+                             style="-fx-background-radius: 12;
+                              -fx-border-radius: 12;
+                              -fx-border-color: #003366;
+                              -fx-border-width: 1.5;
+                              -fx-padding: 8 12;
+                              -fx-background-color: white;" />
+               </VBox>
+
+               <!-- Image -->
+               <VBox spacing="6" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                  <Label text="🖼️ Image véhicule *" style="-fx-font-weight: bold;" />
+                  <HBox spacing="10">
+                     <Button fx:id="uploadButton" text="📁 Choisir Image" onAction="#handleUploadAction"
+                             style="-fx-background-color: linear-gradient(to right, #001f4d, #003366);
+                               -fx-text-fill: white;
+                               -fx-border-radius: 12;
+                               -fx-background-radius: 12;
+                               -fx-padding: 6 16;
+                               -fx-cursor: hand;" />
+                     <Label fx:id="fileLabel" text="Aucune sélection" />
+                  </HBox>
+               </VBox>
+
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+            </GridPane>
+
+            <!-- Submit Button centered -->
+            <HBox alignment="CENTER">
+               <Button fx:id="submitButton" onAction="#ajouterOffreAction" text="💾 Enregistrer"
+                       style="-fx-background-radius: 25;
+                       -fx-text-fill: white;
+                       -fx-font-size: 16px;
+                       -fx-font-weight: bold;
+                       -fx-padding: 10 25;
+                       -fx-background-color: linear-gradient(to right, #001f4d, #003366);
+                       -fx-cursor: hand;
+                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 4);" />
+            </HBox>
+         </VBox>
+      </HBox>
+
+   </children>
+</AnchorPane>
