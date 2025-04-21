@@ -7,8 +7,9 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.RenitialiserMotDePasseController" prefWidth="600" prefHeight="400">
     <VBox alignment="CENTER" spacing="20" layoutX="50" layoutY="30" prefWidth="500">
 
+        <ToggleGroup fx:id="choiceGroup" />
         <Label text="Réinitialiser votre mot de passe" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
-
+        
         <Label text="Comment voulez-vous recevoir votre code de réinitialisation du mot de passe ?" wrapText="true" />
 
 
