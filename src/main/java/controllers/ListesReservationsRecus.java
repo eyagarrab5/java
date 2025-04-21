@@ -9,11 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextFlow;
 import javafx.scene.text.Text;
 import javafx.scene.control.ListView;
@@ -21,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -101,7 +97,7 @@ public class ListesReservationsRecus {
 
     private void showHelpPopup() {
         // Création de l'icône d'information
-        ImageView infoIcon = new ImageView(new Image(getClass().getResourceAsStream("/img/con.jpg")));
+        ImageView infoIcon = new ImageView(new Image(getClass().getResourceAsStream("/img/conducteur.jpg")));
         infoIcon.setFitWidth(150);
         infoIcon.setFitHeight(150);
 
